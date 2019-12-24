@@ -12,7 +12,7 @@ import config_util  # pylint: disable=import-error
 class InspectorProtocol(config_util.Config):
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/deps/inspector_protocol.git'
+    url = 'http://103.210.161.2:3232/deps/inspector_protocol.git'
     solution = {
       'name': 'src',
       'url': url,

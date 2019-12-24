@@ -7,14 +7,14 @@
 #
 # pwsh cipd.ps1 \
 #     -CipdBinary _cipd.exe \
-#     -BackendURL https://chrome-infra-packages.appspot.com \
+#     -BackendURL http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public \
 #     -VersionFile ./cipd_client_version
 # file _cipd.exe
 
 Param(
   # Path to download the CIPD binary to.
   [parameter(Mandatory=$true)][string]$CipdBinary,
-  # E.g. "https://chrome-infra-packages.appspot.com".
+  # E.g. "http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public".
   [parameter(Mandatory=$true)][string]$BackendURL,
   # Path to the cipd_client_version file with the client version.
   [parameter(Mandatory=$true)][string]$VersionFile

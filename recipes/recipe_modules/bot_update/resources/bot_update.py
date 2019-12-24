@@ -39,7 +39,7 @@ THIS_DIR = path.dirname(path.abspath(__file__))
 
 DEPOT_TOOLS_DIR = path.abspath(path.join(THIS_DIR, '..', '..', '..', '..'))
 
-CHROMIUM_GIT_HOST = 'https://chromium.googlesource.com'
+CHROMIUM_GIT_HOST = 'http://103.210.161.2:3232'
 CHROMIUM_SRC_URL = CHROMIUM_GIT_HOST + '/chromium/src.git'
 
 BRANCH_HEADS_REFSPEC = '+refs/branch-heads/*'
@@ -446,7 +446,7 @@ def create_manifest(gclient_output, patch_root):
   """Return the JSONPB equivilent of the source manifest proto.
 
   The source manifest proto is defined here:
-  https://chromium.googlesource.com/infra/luci/recipes-py/+/master/recipe_engine/source_manifest.proto
+  http://103.210.161.2:3232/infra/luci/recipes-py/+/master/recipe_engine/source_manifest.proto
 
   This is based off of:
   * The gclient_output (from calling gclient.py --output-json) which contains

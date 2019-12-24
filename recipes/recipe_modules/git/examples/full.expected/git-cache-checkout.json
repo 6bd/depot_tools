@@ -7,7 +7,7 @@
       "--path",
       "[START_DIR]/src",
       "--url",
-      "https://chromium.googlesource.com/chromium/src.git"
+      "http://103.210.161.2:3232/chromium/src.git"
     ],
     "name": "git setup"
   },
@@ -18,7 +18,7 @@
       "populate",
       "-c",
       "[CACHE]/git",
-      "https://chromium.googlesource.com/chromium/src.git"
+      "http://103.210.161.2:3232/chromium/src.git"
     ],
     "cwd": "[START_DIR]/src",
     "env": {
@@ -35,7 +35,7 @@
       "--quiet",
       "--cache-dir",
       "[CACHE]/git",
-      "https://chromium.googlesource.com/chromium/src.git"
+      "http://103.210.161.2:3232/chromium/src.git"
     ],
     "cwd": "[START_DIR]/src",
     "env": {

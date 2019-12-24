@@ -20,7 +20,7 @@ class GomaClient(config_util.Config):
         'solutions': [
           {
             'name'     : 'client',
-            'url'      : 'https://chromium.googlesource.com/infra/goma/client.git',
+            'url'      : 'http://103.210.161.2:3232/infra/goma/client.git',
             'deps_file': 'DEPS',
             'managed'  : False,
           }

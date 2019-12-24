@@ -68,7 +68,7 @@ case "${UNAME}" in
 esac
 
 # CIPD_BACKEND can be changed to ...-dev for manual testing.
-CIPD_BACKEND="https://chrome-infra-packages.appspot.com"
+CIPD_BACKEND="http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public"
 VERSION_FILE="${MYPATH}/cipd_client_version"
 
 CLIENT="${MYPATH}/.cipd_client"

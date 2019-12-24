@@ -56,7 +56,7 @@ _WARNINGS = []
 # very large objects they contain.  It is not safe to use threaded index-pack
 # when cloning/fetching them.
 THREADED_INDEX_PACK_BLACKLIST = [
-  'https://chromium.googlesource.com/chromium/reference_builds/chrome_win.git'
+  'http://103.210.161.2:3232/chromium/reference_builds/chrome_win.git'
 ]
 
 """To support rethrowing exceptions with tracebacks on both Py2 and 3."""

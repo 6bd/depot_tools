@@ -14,7 +14,7 @@ class DevToolsFrontend(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/devtools/devtools-frontend.git'
+    url = 'http://103.210.161.2:3232/devtools/devtools-frontend.git'
     solution = {
         'name'        : 'devtools-frontend',
         'url'         : url,

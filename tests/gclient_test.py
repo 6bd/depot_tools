@@ -1014,7 +1014,7 @@ class GclientTest(trial_dir.TestCase):
 
     self.assertIsInstance(dep, gclient.CipdDependency)
     self.assertEqual(
-        'https://chrome-infra-packages.appspot.com/lemur@version:1234',
+        'http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public/lemur@version:1234',
         dep.url)
 
   def testDepsFromNotAllowedHostsUnspecified(self):
@@ -1172,7 +1172,7 @@ class GclientTest(trial_dir.TestCase):
 
     self.assertIsInstance(dep, gclient.CipdDependency)
     self.assertEqual(
-        'https://chrome-infra-packages.appspot.com/lemur@version:1234',
+        'http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public/lemur@version:1234',
         dep.url)
 
   def testIgnoresCipdDependenciesWhenFlagIsSet(self):

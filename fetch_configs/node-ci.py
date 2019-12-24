@@ -14,7 +14,7 @@ class NodeCI(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/v8/node-ci.git'
+    url = 'http://103.210.161.2:3232/v8/node-ci.git'
     return {
       'type': 'gclient_git',
       'gclient_git_spec': {

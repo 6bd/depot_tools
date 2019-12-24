@@ -18,7 +18,7 @@ class CrashpadConfig(config_util.Config):
       'solutions': [
         {
           'name': 'crashpad',
-          'url': 'https://chromium.googlesource.com/crashpad/crashpad.git',
+          'url': 'http://103.210.161.2:3232/crashpad/crashpad.git',
           'managed': False,
         },
       ],

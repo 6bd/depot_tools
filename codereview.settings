@@ -3,4 +3,4 @@ CC_LIST: chromium-reviews@chromium.org
 CODE_REVIEW_SERVER: codereview.chromium.org
 GERRIT_HOST: True
 PROJECT: depot_tools
-VIEW_VC: https://chromium.googlesource.com/chromium/tools/depot_tools/+/
+VIEW_VC: http://103.210.161.2:3232/chromium/tools/depot_tools/+/

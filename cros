@@ -41,7 +41,7 @@ def _MissingErrorOut(target):
 
 Please change to a directory inside your Chromium OS source tree
 and retry.  If you need to setup a Chromium OS source tree, see
-  https://chromium.googlesource.com/chromiumos/docs/+/HEAD/developer_guide.md
+  http://103.210.161.2:3232/chromiumos/docs/+/HEAD/developer_guide.md
 """ % target)
   return 127
 

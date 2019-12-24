@@ -224,7 +224,7 @@ class Gitiles(recipe_api.RecipeApi):
 
 
 def parse_http_host_and_path(url):
-  # Copied from https://chromium.googlesource.com/infra/luci/recipes-py/+/809e57935211b3fcb802f74a7844d4f36eff6b87/recipe_modules/buildbucket/util.py
+  # Copied from http://103.210.161.2:3232/infra/luci/recipes-py/+/809e57935211b3fcb802f74a7844d4f36eff6b87/recipe_modules/buildbucket/util.py
   parsed = urlparse.urlparse(url)
   if not parsed.scheme:
     parsed = urlparse.urlparse('https://' + url)
@@ -241,7 +241,7 @@ def parse_repo_url(repo_url):
 
   Returns (None, None) if repo_url is not recognized.
   """
-  # Adapted from https://chromium.googlesource.com/infra/luci/recipes-py/+/809e57935211b3fcb802f74a7844d4f36eff6b87/recipe_modules/buildbucket/util.py
+  # Adapted from http://103.210.161.2:3232/infra/luci/recipes-py/+/809e57935211b3fcb802f74a7844d4f36eff6b87/recipe_modules/buildbucket/util.py
   host, project = parse_http_host_and_path(repo_url)
   if not host or not project or '+' in project.split('/'):
     return None, None

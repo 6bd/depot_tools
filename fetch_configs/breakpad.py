@@ -12,7 +12,7 @@ import config_util  # pylint: disable=import-error
 class Breakpad(config_util.Config):
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/breakpad/breakpad.git'
+    url = 'http://103.210.161.2:3232/breakpad/breakpad.git'
     solution = {
       'name': 'src',
       'url': url,

@@ -20,7 +20,7 @@ class Infra(config_util.Config):
         'solutions': [
           {
             'name'     : 'infra',
-            'url'      : 'https://chromium.googlesource.com/infra/infra.git',
+            'url'      : 'http://103.210.161.2:3232/infra/infra.git',
             'managed'  : False,
           }
         ],

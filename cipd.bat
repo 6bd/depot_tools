@@ -5,7 +5,7 @@
 
 setlocal
 
-set CIPD_BACKEND=https://chrome-infra-packages.appspot.com
+set CIPD_BACKEND=http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public
 set VERSION_FILE="%~dp0cipd_client_version"
 set CIPD_BINARY="%~dp0.cipd_client.exe"
 

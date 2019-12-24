@@ -58,7 +58,7 @@ def RunSteps(api):
   src_cfg = api.gclient.make_config(CACHE_DIR='[ROOT]/git_cache')
   soln = src_cfg.solutions.add()
   soln.name = 'src'
-  soln.url = 'https://chromium.googlesource.com/chromium/src.git'
+  soln.url = 'http://103.210.161.2:3232/chromium/src.git'
   soln.revision = api.buildbucket.gitiles_commit.id
   soln.custom_vars = {'string_var': 'string_val', 'true_var': True}
   src_cfg.parent_got_revision_mapping['parent_got_revision'] = 'got_revision'
@@ -69,7 +69,7 @@ def RunSteps(api):
   bl_cfg = api.gclient.make_config()
   soln = bl_cfg.solutions.add()
   soln.name = 'Angle'
-  soln.url = 'https://chromium.googlesource.com/angle/angle.git'
+  soln.url = 'http://103.210.161.2:3232/angle/angle.git'
   bl_cfg.revisions['src/third_party/angle'] = 'refs/heads/lkgr'
 
   bl_cfg.got_revision_mapping['src/blatley'] = 'got_blatley_revision'

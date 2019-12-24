@@ -1703,9 +1703,9 @@ class Changelist(object):
     # *.googlesource.com hosts ensure that Git/Gerrit projects don't start with
     # 'a/' prefix, because 'a/' prefix is used to force authentication in
     # gitiles/git-over-https protocol. E.g.,
-    # https://chromium.googlesource.com/a/v8/v8 refers to the same repo/project
+    # http://103.210.161.2:3232/a/v8/v8 refers to the same repo/project
     # as
-    # https://chromium.googlesource.com/v8/v8
+    # http://103.210.161.2:3232/v8/v8
     if project.startswith('a/'):
       project = project[len('a/'):]
     return project
@@ -2091,7 +2091,7 @@ class Changelist(object):
     if u'Commit-Queue' not in detail.get('labels', {}):
       return False
     # TODO(crbug/753213): Remove temporary hack
-    if ('https://chromium.googlesource.com/chromium/src' ==
+    if ('http://103.210.161.2:3232/chromium/src' ==
         self.GetRemoteUrl() and
         detail['branch'].startswith('refs/branch-heads/')):
       return False

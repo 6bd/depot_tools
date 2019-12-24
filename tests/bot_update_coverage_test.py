@@ -235,7 +235,7 @@ class BotUpdateUnittests(unittest.TestCase):
 
   def testApplyPatchOnGclient(self):
     ref = 'refs/changes/12/345/6'
-    repo = 'https://chromium.googlesource.com/v8/v8'
+    repo = 'http://103.210.161.2:3232/v8/v8'
     self.params['patch_refs'] = ['%s@%s' % (repo, ref)]
     bot_update.ensure_checkout(**self.params)
     args = self.gclient.records[0]
@@ -249,8 +249,8 @@ class BotUpdateUnittests(unittest.TestCase):
 
   def testPatchRefs(self):
     self.params['patch_refs'] = [
-        'https://chromium.googlesource.com/chromium/src@refs/changes/12/345/6',
-        'https://chromium.googlesource.com/v8/v8@refs/changes/1/234/56']
+        'http://103.210.161.2:3232/chromium/src@refs/changes/12/345/6',
+        'http://103.210.161.2:3232/v8/v8@refs/changes/1/234/56']
     bot_update.ensure_checkout(**self.params)
     args = self.gclient.records[0]
     patch_refs = set(
@@ -289,13 +289,13 @@ class BotUpdateUnittests(unittest.TestCase):
             'breakpad/': {
                 'revision': None,
                 'scm': None,
-                'url': ('https://chromium.googlesource.com/breakpad.git' +
+                'url': ('http://103.210.161.2:3232/breakpad.git' +
                         '@5f638d532312685548d5033618c8a36f73302d0a')
             },
             "src/": {
                 'revision': 'f671d3baeb64d9dba628ad582e867cf1aebc0207',
                 'scm': None,
-                'url': 'https://chromium.googlesource.com/a/chromium/src.git'
+                'url': 'http://103.210.161.2:3232/a/chromium/src.git'
             },
             'src/overriden': {
                 'revision': None,
@@ -311,13 +311,13 @@ class BotUpdateUnittests(unittest.TestCase):
         'f671d3baeb64d9dba628ad582e867cf1aebc0207')
     self.assertEqual(
         out['directories']['src']['git_checkout']['repo_url'],
-        'https://chromium.googlesource.com/chromium/src')
+        'http://103.210.161.2:3232/chromium/src')
     self.assertEqual(
         out['directories']['breakpad']['git_checkout']['revision'],
         '5f638d532312685548d5033618c8a36f73302d0a')
     self.assertEqual(
         out['directories']['breakpad']['git_checkout']['repo_url'],
-        'https://chromium.googlesource.com/breakpad')
+        'http://103.210.161.2:3232/breakpad')
     self.assertNotIn('src/overridden', out['directories'])
 
   def testParsesRevisions(self):

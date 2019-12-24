@@ -1,7 +1,7 @@
 # vpython VirtualEnv protobuf for "gsutil".
 #
 # See:
-# https://chromium.googlesource.com/infra/luci/luci-go/+/master/vpython/api/vpython/spec.proto
+# http://103.210.161.2:3232/infra/luci/luci-go/+/master/vpython/api/vpython/spec.proto
 #
 # This is a "vpython" VirtualEnv specification applied to invocations of "gsutil"
 # by the bootstrap wrapper, "gsutil.py". It ensures that any Python distribution

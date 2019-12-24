@@ -7,7 +7,7 @@
       "--path",
       "[START_DIR]\\src",
       "--url",
-      "https://chromium.googlesource.com/chromium/src.git"
+      "http://103.210.161.2:3232/chromium/src.git"
     ],
     "name": "git setup"
   },

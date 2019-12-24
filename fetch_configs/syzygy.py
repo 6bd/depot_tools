@@ -20,7 +20,7 @@ class Syzygy(config_util.Config):
         'solutions': [
           {
             'name'     : 'src',
-            'url'      : 'https://chromium.googlesource.com/syzygy',
+            'url'      : 'http://103.210.161.2:3232/syzygy',
             'deps_file': 'DEPS',
             'managed'  : False,
           }

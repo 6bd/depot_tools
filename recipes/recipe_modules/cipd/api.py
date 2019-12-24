@@ -303,7 +303,7 @@ class CIPDApi(recipe_api.RecipeApi):
       }))
     ret_data = result.json.output['result']
     result.presentation.links[ret_data['instance_id']] = (
-        'https://chrome-infra-packages.appspot.com/p/%(package)s/+/%(instance_id)s' % ret_data)
+        'http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public/p/%(package)s/+/%(instance_id)s' % ret_data)
     return ret_data
 
   def create_from_yaml(self, pkg_def, refs=None, tags=None):

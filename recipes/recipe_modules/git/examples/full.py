@@ -16,7 +16,7 @@ DEPS = [
 
 
 def RunSteps(api):
-  url = 'https://chromium.googlesource.com/chromium/src.git'
+  url = 'http://103.210.161.2:3232/chromium/src.git'
 
   # git.checkout can optionally dump GIT_CURL_VERBOSE traces to a log file,
   # useful for debugging git access issues that are reproducible only on bots.

@@ -80,7 +80,7 @@ def BaseConfig(USE_MIRROR=True, CACHE_DIR=None,
     # can be patched automatically by bot_update based on
     # api.buildbucket.build.input.gerrit_changes[0].project
     # For example, if bare chromium solution has this entry in repo_path_map
-    #     'https://chromium.googlesource.com/angle/angle': (
+    #     'http://103.210.161.2:3232/angle/angle': (
     #       'src/third_party/angle', 'HEAD')
     # then a patch to Angle project can be applied to a chromium src's
     # checkout after first updating Angle's repo to its master's HEAD.
@@ -110,7 +110,7 @@ def BaseConfig(USE_MIRROR=True, CACHE_DIR=None,
 config_ctx = config_item_context(BaseConfig)
 
 def ChromiumGitURL(_c, *pieces):
-  return '/'.join(('https://chromium.googlesource.com',) + pieces)
+  return '/'.join(('http://103.210.161.2:3232',) + pieces)
 
 # TODO(phajdan.jr): Move to proper repo and add coverage.
 def ChromeInternalGitURL(_c, *pieces):  # pragma: no cover
@@ -266,7 +266,7 @@ def pdfium(c):
 def crashpad(c):
   soln = c.solutions.add()
   soln.name = 'crashpad'
-  soln.url = 'https://chromium.googlesource.com/crashpad/crashpad.git'
+  soln.url = 'http://103.210.161.2:3232/crashpad/crashpad.git'
 
 @config_ctx()
 def boringssl(c):
@@ -287,23 +287,23 @@ def dart(c):
 def expect_tests(c):
   soln = c.solutions.add()
   soln.name = 'expect_tests'
-  soln.url = 'https://chromium.googlesource.com/infra/testing/expect_tests.git'
+  soln.url = 'http://103.210.161.2:3232/infra/testing/expect_tests.git'
   c.got_revision_mapping['expect_tests'] = 'got_revision'
 
 @config_ctx()
 def infra(c):
   soln = c.solutions.add()
   soln.name = 'infra'
-  soln.url = 'https://chromium.googlesource.com/infra/infra.git'
+  soln.url = 'http://103.210.161.2:3232/infra/infra.git'
   c.got_revision_mapping['infra'] = 'got_revision'
   c.repo_path_map.update({
-      'https://chromium.googlesource.com/infra/luci/gae': (
+      'http://103.210.161.2:3232/infra/luci/gae': (
           'infra/go/src/go.chromium.org/gae', 'HEAD'),
-      'https://chromium.googlesource.com/infra/luci/luci-py': (
+      'http://103.210.161.2:3232/infra/luci/luci-py': (
           'infra/luci', 'HEAD'),
-      'https://chromium.googlesource.com/infra/luci/luci-go': (
+      'http://103.210.161.2:3232/infra/luci/luci-go': (
           'infra/go/src/go.chromium.org/luci', 'HEAD'),
-      'https://chromium.googlesource.com/infra/luci/recipes-py': (
+      'http://103.210.161.2:3232/infra/luci/recipes-py': (
           'infra/recipes-py', 'HEAD')
   })
 
@@ -360,14 +360,14 @@ def recipes_py(c):
 def recipes_py_bare(c):
   soln = c.solutions.add()
   soln.name = 'recipes-py'
-  soln.url = 'https://chromium.googlesource.com/infra/luci/recipes-py'
+  soln.url = 'http://103.210.161.2:3232/infra/luci/recipes-py'
   c.got_revision_mapping['recipes-py'] = 'got_revision'
 
 @config_ctx()
 def catapult(c):
   soln = c.solutions.add()
   soln.name = 'catapult'
-  soln.url = 'https://chromium.googlesource.com/catapult'
+  soln.url = 'http://103.210.161.2:3232/catapult'
   c.got_revision_mapping['catapult'] = 'got_revision'
 
 @config_ctx(includes=['infra_internal'])
@@ -399,20 +399,20 @@ def custom_tabs_client(c):
   soln = c.solutions.add()
   soln.name = 'custom_tabs_client'
   # TODO(pasko): test custom-tabs-client within a full chromium checkout.
-  soln.url = 'https://chromium.googlesource.com/custom-tabs-client'
+  soln.url = 'http://103.210.161.2:3232/custom-tabs-client'
   c.got_revision_mapping['custom_tabs_client'] = 'got_revision'
 
 @config_ctx()
 def gerrit_test_cq_normal(c):
   soln = c.solutions.add()
   soln.name = 'gerrit-test-cq-normal'
-  soln.url = 'https://chromium.googlesource.com/playground/gerrit-cq/normal.git'
+  soln.url = 'http://103.210.161.2:3232/playground/gerrit-cq/normal.git'
 
 @config_ctx()
 def angle(c):
   soln = c.solutions.add()
   soln.name = 'angle'
-  soln.url = 'https://chromium.googlesource.com/angle/angle.git'
+  soln.url = 'http://103.210.161.2:3232/angle/angle.git'
   # Standalone developer angle builds want the angle checkout in the same
   # directory the .gclient file is in.  Bots want it in a directory called
   # 'angle'.  To make both cases work, the angle DEPS file pulls deps and runs
@@ -433,23 +433,23 @@ def celab(c):
   soln = c.solutions.add()
   # soln.name must match the repo name for `dep` to work properly
   soln.name = 'cel'
-  soln.url = 'https://chromium.googlesource.com/enterprise/cel.git'
+  soln.url = 'http://103.210.161.2:3232/enterprise/cel.git'
   c.got_revision_mapping['cel'] = 'got_revision'
 
 @config_ctx()
 def openscreen(c):
   s = c.solutions.add()
   s.name = 'openscreen'
-  s.url = 'https://chromium.googlesource.com/openscreen'
+  s.url = 'http://103.210.161.2:3232/openscreen'
   c.got_revision_mapping['openscreen'] = 'got_revision'
 
 @config_ctx()
 def devtools(c):
   s = c.solutions.add()
   s.name = 'devtools'
-  s.url = 'https://chromium.googlesource.com/devtools/devtools-frontend.git'
+  s.url = 'http://103.210.161.2:3232/devtools/devtools-frontend.git'
   c.got_revision_mapping['devtools'] = 'got_revision'
   c.repo_path_map.update({
-      'https://chromium.googlesource.com/devtools/devtools-frontend': (
+      'http://103.210.161.2:3232/devtools/devtools-frontend': (
           'devtools/devtools-frontend', 'HEAD'),
   })

@@ -7,7 +7,7 @@
 
 Example usage:
   ./gerrit_client.py -j /tmp/out.json -f json \
-    -u https://chromium.googlesource.com/chromium/src/+log
+    -u http://103.210.161.2:3232/chromium/src/+log
 """
 
 import argparse
@@ -217,7 +217,7 @@ def create_argparser():
   parser.add_argument(
       '-u', '--url', required=True,
       help='Url of gitiles. For example, '
-           'https://chromium.googlesource.com/chromium/src/+refs. '
+           'http://103.210.161.2:3232/chromium/src/+refs. '
            'Insert a/ after domain for authenticated access.')
   parser.add_argument(
       '-a', '--attempts', type=int, default=1,

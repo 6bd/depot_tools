@@ -205,7 +205,7 @@ class MirrorTest(unittest.TestCase):
     # sure bots are authenticated and get the right quotas. However, we
     # only want to maintain a single cache for the repo.
     self.assertEqual(git_cache.Mirror.UrlToCacheDir(
-        'https://chromium.googlesource.com/a/chromium/src.git'),
+        'http://103.210.161.2:3232/a/chromium/src.git'),
         'chromium.googlesource.com-chromium-src')
 
 

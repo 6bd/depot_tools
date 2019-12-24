@@ -86,7 +86,7 @@ class CIPDTestApi(recipe_test_api.RecipeTestApi):
           }
           for tag in ([
               'buildbot_build:some.waterfall/builder/1234',
-              'git_repository:https://chromium.googlesource.com/some/repo',
+              'git_repository:http://103.210.161.2:3232/some/repo',
               'git_revision:397a2597cdc237f3026e6143b683be4b9ab60540',
           ] if test_data_tags is None else test_data_tags)
         ],

@@ -30,7 +30,7 @@ First, some words about what data we are **NOT** collecting:
 - We won't record information about the current directory or environment flags.
 - We won't record arbitrary strings. We only collect a string if it is in the
   list available at
-  https://chromium.googlesource.com/infra/infra/+/master/go/src/infra/appengine/depot_tools_metrics/metrics/metrics_schema.json#45
+  http://103.210.161.2:3232/infra/infra/+/master/go/src/infra/appengine/depot_tools_metrics/metrics/metrics_schema.json#45
 
 The metrics we're collecting are:
 
@@ -72,7 +72,7 @@ The metrics we're collecting are:
   - What was the exit code?
 
 The list of all known strings we collect can be found at
-https://chromium.googlesource.com/infra/infra/+/master/go/src/infra/appengine/depot_tools_metrics/metrics/metrics_schema.json#45
+http://103.210.161.2:3232/infra/infra/+/master/go/src/infra/appengine/depot_tools_metrics/metrics/metrics_schema.json#45
 
 ## Why am I seeing this message *again*?
 

@@ -14,7 +14,7 @@ class Chromium(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/external/gyp.git'
+    url = 'http://103.210.161.2:3232/external/gyp.git'
     solution = { 'name'   :'gyp',
                  'url'    : url,
                  'managed'   : False,

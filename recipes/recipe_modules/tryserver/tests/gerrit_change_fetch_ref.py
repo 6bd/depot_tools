@@ -22,7 +22,7 @@ def GenTests(api):
       api.buildbucket.try_build(
         'chromium',
         'linux',
-        git_repo='https://chromium.googlesource.com/chromium/src',
+        git_repo='http://103.210.161.2:3232/chromium/src',
         change_number=91827,
         patch_set=1) +
       api.properties(target_ref='refs/heads/master') +

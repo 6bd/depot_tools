@@ -37,7 +37,7 @@ class GitilesTestApi(recipe_test_api.RecipeTestApi):
 
     This data structure conforms to the JSON response that Gitiles provides when
     a commit is queried. For example:
-    https://chromium.googlesource.com/chromium/src/+/875b896a3256c5b86c8725e81489e99ea6c2b4c9?format=json
+    http://103.210.161.2:3232/chromium/src/+/875b896a3256c5b86c8725e81489e99ea6c2b4c9?format=json
 
     Args:
       commit (str): The fake commit hash.

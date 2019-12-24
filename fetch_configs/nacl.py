@@ -14,7 +14,7 @@ class NaCl(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = ('https://chromium.googlesource.com/native_client/'
+    url = ('http://103.210.161.2:3232/native_client/'
            'src/native_client.git')
     solution = {
         'name'        : 'native_client',

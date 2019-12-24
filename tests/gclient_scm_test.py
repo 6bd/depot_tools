@@ -911,7 +911,7 @@ class CipdWrapperTestCase(unittest.TestCase):
     self._cipd_root_dir = tempfile.mkdtemp()
     self._workdir = tempfile.mkdtemp()
 
-    self._cipd_instance_url = 'https://chrome-infra-packages.appspot.com'
+    self._cipd_instance_url = 'http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public'
     self._cipd_root = gclient_scm.CipdRoot(
         self._cipd_root_dir,
         self._cipd_instance_url)

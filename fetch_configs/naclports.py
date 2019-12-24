@@ -14,7 +14,7 @@ class Naclports(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/external/naclports.git'
+    url = 'http://103.210.161.2:3232/external/naclports.git'
     solution = {
         'name'        : 'src',
         'url'         : url,

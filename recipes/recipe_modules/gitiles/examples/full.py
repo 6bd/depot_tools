@@ -12,7 +12,7 @@ DEPS = [
 
 
 def RunSteps(api):
-  url = 'https://chromium.googlesource.com/chromium/src'
+  url = 'http://103.210.161.2:3232/chromium/src'
   for ref in api.gitiles.refs(url):
     _, cursor = api.gitiles.log(url, ref)
     if cursor:
@@ -76,7 +76,7 @@ def GenTests(api):
           api.json.output({'value': None})
       )
       + api.step_data(
-          ('download https://chromium.googlesource.com/chromium/src @ '
+          ('download http://103.210.161.2:3232/chromium/src @ '
            'refs/heads/master (2)'),
         api.json.output({
           'extracted': {

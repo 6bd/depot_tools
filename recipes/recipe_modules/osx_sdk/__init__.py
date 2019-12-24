@@ -23,7 +23,7 @@ PROPERTIES = {
       # XCode build version number. Internally maps to an XCode build id like
       # '9c40b'. See
       #
-      #   https://chrome-infra-packages.appspot.com/p/infra_internal/ios/xcode/mac/+/
+      #   http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public/p/infra_internal/ios/xcode/mac/+/
       #
       # For an up to date list of the latest SDK builds.
       sdk_version=Single(str),

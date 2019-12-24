@@ -32,7 +32,7 @@ def RunSteps(api):
 
   if api.tryserver.gerrit_change:
     assert (api.tryserver.gerrit_change_repo_url ==
-            'https://chromium.googlesource.com/chromium/src')
+            'http://103.210.161.2:3232/chromium/src')
     assert api.tryserver.gerrit_change_fetch_ref == 'refs/changes/27/91827/1'
     expected_target_ref = api.properties.get(
         'expected_target_ref', 'refs/heads/master')
@@ -74,7 +74,7 @@ def GenTests(api):
          api.buildbucket.try_build(
             'chromium',
             'linux',
-            git_repo='https://chromium.googlesource.com/chromium/src',
+            git_repo='http://103.210.161.2:3232/chromium/src',
             change_number=91827,
             patch_set=1))
 
@@ -82,7 +82,7 @@ def GenTests(api):
          api.buildbucket.try_build(
             'chromium',
             'linux',
-            git_repo='https://chromium.googlesource.com/chromium/src',
+            git_repo='http://103.210.161.2:3232/chromium/src',
             change_number=91827,
             patch_set=1) +
          api.properties(expected_target_ref='refs/heads/experiment') +

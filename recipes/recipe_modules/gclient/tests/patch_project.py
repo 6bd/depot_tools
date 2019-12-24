@@ -17,22 +17,22 @@ def RunSteps(api):
   src_cfg = api.gclient.make_config(CACHE_DIR='[ROOT]/git_cache')
   soln = src_cfg.solutions.add()
   soln.name = 'src'
-  soln.url = 'https://chromium.googlesource.com/chromium/src.git'
+  soln.url = 'http://103.210.161.2:3232/chromium/src.git'
   src_cfg.repo_path_map.update({
-      'https://chromium.googlesource.com/src': ('src', 'HEAD'),
-      'https://chromium.googlesource.com/v8/v8': ('src/v8', 'HEAD'),
+      'http://103.210.161.2:3232/src': ('src', 'HEAD'),
+      'http://103.210.161.2:3232/v8/v8': ('src/v8', 'HEAD'),
       # non-canonical URL
       'https://webrtc.googlesource.com/src.git': (
           'src/third_party/webrtc', 'HEAD'),
   })
   assert api.gclient.get_repo_path(
-      'https://chromium.googlesource.com/chromium/src.git',
+      'http://103.210.161.2:3232/chromium/src.git',
       gclient_config=src_cfg) == 'src'
   assert api.gclient.get_repo_path(
-      'https://chromium.googlesource.com/chromium/src',
+      'http://103.210.161.2:3232/chromium/src',
       gclient_config=src_cfg) == 'src'
   assert api.gclient.get_repo_path(
-      'https://chromium.googlesource.com/v8/v8',
+      'http://103.210.161.2:3232/v8/v8',
       gclient_config=src_cfg) == 'src/v8'
   assert api.gclient.get_repo_path(
       'https://webrtc.googlesource.com/src',
@@ -54,7 +54,7 @@ def GenTests(api):
       api.buildbucket.ci_build(
           project='chromium',
           builder='linux',
-          git_repo='https://chromium.googlesource.com/src') +
+          git_repo='http://103.210.161.2:3232/src') +
       api.properties(expected_patch_root=None) +
       api.post_process(post_process.DropExpectation)
   )
@@ -64,7 +64,7 @@ def GenTests(api):
       api.buildbucket.try_build(
           project='chromium',
           builder='linux',
-          git_repo='https://chromium.googlesource.com/src') +
+          git_repo='http://103.210.161.2:3232/src') +
       api.properties(expected_patch_root='src') +
       api.post_process(post_process.DropExpectation)
   )
@@ -74,7 +74,7 @@ def GenTests(api):
       api.buildbucket.try_build(
           project='chromium',
           builder='linux',
-          git_repo='https://chromium.googlesource.com/v8/v8') +
+          git_repo='http://103.210.161.2:3232/v8/v8') +
       api.properties(expected_patch_root='src/v8') +
       api.post_process(post_process.DropExpectation)
   )

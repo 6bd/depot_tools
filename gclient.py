@@ -1889,7 +1889,7 @@ it or fix the checkout.
           # Service URLs should be constant over the scope of a cipd
           # root, so a var per DEPS file specifying the service URL
           # should suffice.
-          'https://chrome-infra-packages.appspot.com')
+          'http://103.210.161.2:3232/chromiumsrc/cipd/tree/master/public')
     return self._cipd_root
 
   @property

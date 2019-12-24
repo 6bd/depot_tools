@@ -8,12 +8,12 @@
 # https://ci.chromium.org/p/infra/g/infra/console
 #
 # For these, the git revision is the one of
-# https://chromium.googlesource.com/infra/infra.git.
+# http://103.210.161.2:3232/infra/infra.git.
 #
 # For goma client, generated via builders at
 # https://ci.chromium.org/p/infra-internal/g/goma-client/console
 # the git revision is the one of
-# https://chromium.googlesource.com/infra/goma/client.git
+# http://103.210.161.2:3232/infra/goma/client.git
 #
 # To regenerate them (after modifying this file):
 #   cipd ensure-file-resolve -ensure-file cipd_manifest.txt

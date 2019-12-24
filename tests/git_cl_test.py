@@ -1841,7 +1841,7 @@ class TestGitCl(TestCase):
   def test_patch_gerrit_default(self):
     self._patch_common(git_short_host='chromium', detect_gerrit_server=True)
     self.calls += [
-      ((['git', 'fetch', 'https://chromium.googlesource.com/my/repo',
+      ((['git', 'fetch', 'http://103.210.161.2:3232/my/repo',
          'refs/changes/56/123456/7'],), ''),
       ((['git', 'cherry-pick', 'FETCH_HEAD'],), ''),
       ((['git', 'config', 'branch.master.gerritissue', '123456'],),
@@ -1859,7 +1859,7 @@ class TestGitCl(TestCase):
     self._patch_common(
         git_short_host='chromium', detect_gerrit_server=True, new_branch=True)
     self.calls += [
-      ((['git', 'fetch', 'https://chromium.googlesource.com/my/repo',
+      ((['git', 'fetch', 'http://103.210.161.2:3232/my/repo',
          'refs/changes/56/123456/7'],), ''),
       ((['git', 'cherry-pick', 'FETCH_HEAD'],), ''),
       ((['git', 'config', 'branch.master.gerritissue', '123456'],),
@@ -1939,7 +1939,7 @@ class TestGitCl(TestCase):
   def test_patch_gerrit_conflict(self):
     self._patch_common(detect_gerrit_server=True, git_short_host='chromium')
     self.calls += [
-      ((['git', 'fetch', 'https://chromium.googlesource.com/my/repo',
+      ((['git', 'fetch', 'http://103.210.161.2:3232/my/repo',
          'refs/changes/56/123456/7'],), ''),
       ((['git', 'cherry-pick', 'FETCH_HEAD'],), CERR1),
       ((['DieWithError', 'Command "git cherry-pick FETCH_HEAD" failed.\n'],),
@@ -1960,7 +1960,7 @@ class TestGitCl(TestCase):
       ((['git', 'config', 'branch.master.merge'],), 'refs/heads/master'),
       ((['git', 'config', 'branch.master.remote'],), 'origin'),
       ((['git', 'config', 'remote.origin.url'],),
-       'https://chromium.googlesource.com/my/repo'),
+       'http://103.210.161.2:3232/my/repo'),
       ((['DieWithError',
          'change 123456 at https://chromium-review.googlesource.com does not '
          'exist or you have no access to it'],), SystemExitMock()),
@@ -2090,7 +2090,7 @@ class TestGitCl(TestCase):
         ((['git', 'config', 'branch.feature.merge'],), 'refs/heads/master'),
         ((['git', 'config', 'branch.feature.remote'],), 'origin'),
         ((['git', 'config', 'remote.origin.url'],),
-         'https://chromium.googlesource.com/infra/infra.git'),
+         'http://103.210.161.2:3232/infra/infra.git'),
         ((['SetReview', 'chromium-review.googlesource.com',
            'infra%2Finfra~123',
            {'Commit-Queue': vote}, notify],), ''),
@@ -2170,7 +2170,7 @@ class TestGitCl(TestCase):
         ((['git', 'config', 'branch.feature.merge'],), 'feature'),
         ((['git', 'config', 'branch.feature.remote'],), 'origin'),
         ((['git', 'config', 'remote.origin.url'],),
-         'https://chromium.googlesource.com/my/repo'),
+         'http://103.210.161.2:3232/my/repo'),
         (('GetChangeDetail', 'chromium-review.googlesource.com',
           'my%2Frepo~123123', ['CURRENT_REVISION', 'CURRENT_COMMIT']),
          {
@@ -2522,10 +2522,10 @@ class TestGitCl(TestCase):
     ]
     cl1 = git_cl.Changelist(issue=1)
     cl1._cached_remote_url = (
-        True, 'https://chromium.googlesource.com/a/my/repo.git/')
+        True, 'http://103.210.161.2:3232/a/my/repo.git/')
     cl2 = git_cl.Changelist(issue=2)
     cl2._cached_remote_url = (
-        True, 'https://chromium.googlesource.com/ab/repo')
+        True, 'http://103.210.161.2:3232/ab/repo')
     self.assertEqual(cl1._GetChangeDetail(), 'a')  # Miss.
     self.assertEqual(cl1._GetChangeDetail(), 'a')
     self.assertEqual(cl2._GetChangeDetail(), 'b')  # Miss.
@@ -2543,7 +2543,7 @@ class TestGitCl(TestCase):
         (('GetChangeDetail', 'host', 'repo~1', ['B']), 'b'),
     ]
     cl = git_cl.Changelist(issue=1)
-    cl._cached_remote_url = (True, 'https://chromium.googlesource.com/repo/')
+    cl._cached_remote_url = (True, 'http://103.210.161.2:3232/repo/')
     self.assertEqual(cl._GetChangeDetail(options=['C', 'A', 'B']), 'cab')
     self.assertEqual(cl._GetChangeDetail(options=['A', 'B', 'C']), 'cab')
     self.assertEqual(cl._GetChangeDetail(options=['B', 'A']), 'cab')
@@ -2578,7 +2578,7 @@ class TestGitCl(TestCase):
     self._mock_gerrit_changes_for_detail_cache()
     cl = git_cl.Changelist(issue=1)
     cl._cached_remote_url = (
-        True, 'https://chromium.googlesource.com/a/my/repo.git/')
+        True, 'http://103.210.161.2:3232/a/my/repo.git/')
     self.assertEqual(cl.GetDescription(), 'desc1')
     self.assertEqual(cl.GetDescription(), 'desc1')  # cache hit.
     self.assertEqual(cl.GetDescription(force=True), 'desc2')
@@ -2683,7 +2683,7 @@ class TestGitCl(TestCase):
       ((['git', 'branch', '-r'],), 'origin/HEAD -> origin/master\n'
                                    'origin/master'),
       ((['git', 'config', 'remote.origin.url'],),
-       'https://chromium.googlesource.com/infra/infra'),
+       'http://103.210.161.2:3232/infra/infra'),
       (('SetReview', 'chromium-review.googlesource.com', 'infra%2Finfra~10',
         'msg', None),
        None),
@@ -2700,7 +2700,7 @@ class TestGitCl(TestCase):
       ((['git', 'branch', '-r'],), 'origin/HEAD -> origin/master\n'
                                    'origin/master'),
       ((['git', 'config', 'remote.origin.url'],),
-       'https://chromium.googlesource.com/infra/infra'),
+       'http://103.210.161.2:3232/infra/infra'),
       (('GetChangeDetail', 'chromium-review.googlesource.com',
         'infra%2Finfra~1',
         ['MESSAGES', 'DETAILED_ACCOUNTS', 'CURRENT_REVISION',
@@ -2851,7 +2851,7 @@ class TestGitCl(TestCase):
       ((['git', 'branch', '-r'],), 'origin/HEAD -> origin/master\n'
                                    'origin/master'),
       ((['git', 'config', 'remote.origin.url'],),
-       'https://chromium.googlesource.com/infra/infra'),
+       'http://103.210.161.2:3232/infra/infra'),
       (('GetChangeDetail', 'chromium-review.googlesource.com',
         'infra%2Finfra~1',
         ['MESSAGES', 'DETAILED_ACCOUNTS', 'CURRENT_REVISION',
@@ -2961,7 +2961,7 @@ class TestGitCl(TestCase):
 
     self.mock(os.path, 'isdir', selective_os_path_isdir_mock)
 
-    url = 'https://chromium.googlesource.com/my/repo'
+    url = 'http://103.210.161.2:3232/my/repo'
     self.calls = [
       ((['git', 'symbolic-ref', 'HEAD'],), 'master'),
       ((['git', 'config', 'branch.master.merge'],), 'master'),
@@ -3045,7 +3045,7 @@ class TestGitCl(TestCase):
       ((['git', 'config', 'branch.master.merge'],), 'master'),
       ((['git', 'config', 'branch.master.remote'],), 'origin'),
       ((['git', 'config', 'remote.origin.url'],),
-       'https://chromium.googlesource.com/a/my/repo.git/'),
+       'http://103.210.161.2:3232/a/my/repo.git/'),
     ]
     cl = git_cl.Changelist(issue=123456)
     self.assertEqual(cl._GerritChangeIdentifier(), 'my%2Frepo~123456')
@@ -3076,7 +3076,7 @@ class CMDTestCaseBase(unittest.TestCase):
           'beeeeeef': {
               '_number': 7,
               'fetch': {'http': {
-                  'url': 'https://chromium.googlesource.com/depot_tools',
+                  'url': 'http://103.210.161.2:3232/depot_tools',
                   'ref': 'refs/changes/56/123456/7'
               }},
           },

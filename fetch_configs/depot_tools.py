@@ -14,7 +14,7 @@ class DepotTools(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/chromium/tools/depot_tools.git'
+    url = 'http://103.210.161.2:3232/chromium/tools/depot_tools.git'
     solution = {
         'name'        : 'depot_tools',
         'url'         : url,

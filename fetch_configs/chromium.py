@@ -15,7 +15,7 @@ class Chromium(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://chromium.googlesource.com/chromium/src.git'
+    url = 'http://103.210.161.2:3232/chromium/src.git'
     solution = { 'name'   :'src',
                  'url'    : url,
                  'managed'   : False,

@@ -26,7 +26,7 @@ def RunSteps(api):
   src_cfg = api.gclient.make_config(CACHE_DIR='[GIT_CACHE]')
   soln = src_cfg.solutions.add()
   soln.name = 'src'
-  soln.url = 'https://chromium.googlesource.com/chromium/src.git'
+  soln.url = 'http://103.210.161.2:3232/chromium/src.git'
   soln.revision = commit.id or commit.ref or None
   api.gclient.c = src_cfg
   api.gclient.c.revisions.update(api.properties.get('revisions', {}))
@@ -39,9 +39,9 @@ def RunSteps(api):
     api.gclient.c.got_revision_reverse_mapping['got_angle_revision'] = (
         'src/third_party/angle')
   api.gclient.c.repo_path_map.update({
-      'https://chromium.googlesource.com/angle/angle': (
+      'http://103.210.161.2:3232/angle/angle': (
           'src/third_party/angle', 'HEAD'),
-      'https://chromium.googlesource.com/v8/v8': ('src/v8', 'HEAD'),
+      'http://103.210.161.2:3232/v8/v8': ('src/v8', 'HEAD'),
       'https://webrtc.googlesource.com/src': ('src/third_party/webrtc', 'HEAD'),
   })
 
@@ -89,12 +89,12 @@ def GenTests(api):
 
   def try_build(**kwargs):
     kwargs.setdefault(
-        'git_repo', 'https://chromium.googlesource.com/chromium/src')
+        'git_repo', 'http://103.210.161.2:3232/chromium/src')
     return api.buildbucket.try_build('chromium/src', 'try', 'linux', **kwargs)
 
   def ci_build(**kwargs):
     kwargs.setdefault(
-        'git_repo', 'https://chromium.googlesource.com/chromium/src')
+        'git_repo', 'http://103.210.161.2:3232/chromium/src')
     return (
         api.buildbucket.ci_build('chromium/src', 'ci', 'linux', **kwargs) +
         api.properties(patch=False)
@@ -137,7 +137,7 @@ def GenTests(api):
             'src': {
               'git_checkout': {
                 'repo_url': (
-                    'https://chromium.googlesource.com/chromium/src.git'),
+                    'http://103.210.161.2:3232/chromium/src.git'),
                 'revision': 'ea17a292ecfb3dcdaa8dd226e67d6504fc13c15a'
               },
             },
@@ -209,24 +209,24 @@ def GenTests(api):
   )
   yield (
       api.test('tryjob_v8') +
-      try_build(git_repo='https://chromium.googlesource.com/v8/v8') +
+      try_build(git_repo='http://103.210.161.2:3232/v8/v8') +
        api.properties(revisions={'src/v8': 'abc'})
   )
   yield (
       api.test('tryjob_v8_head_by_default') +
-      try_build(git_repo='https://chromium.googlesource.com/v8/v8')
+      try_build(git_repo='http://103.210.161.2:3232/v8/v8')
   )
   yield (
       api.test('tryjob_gerrit_angle') +
-      try_build(git_repo='https://chromium.googlesource.com/angle/angle')
+      try_build(git_repo='http://103.210.161.2:3232/angle/angle')
   )
   yield (
       api.test('no_apply_patch_on_gclient') +
-      try_build(git_repo='https://chromium.googlesource.com/angle/angle')
+      try_build(git_repo='http://103.210.161.2:3232/angle/angle')
   )
   yield (
       api.test('tryjob_gerrit_v8_feature_branch') +
-      try_build(git_repo='https://chromium.googlesource.com/v8/v8') +
+      try_build(git_repo='http://103.210.161.2:3232/v8/v8') +
       api.tryserver.gerrit_change_target_ref('refs/heads/experimental/feature')
   )
   yield (
@@ -247,9 +247,9 @@ def GenTests(api):
       api.test('multiple_patch_refs') +
       api.properties(
           patch_refs=[
-              ('https://chromium.googlesource.com/chromium/src@'
+              ('http://103.210.161.2:3232/chromium/src@'
                'refs/changes/12/34/5'),
-              'https://chromium.googlesource.com/v8/v8@refs/changes/124/45/6',
+              'http://103.210.161.2:3232/v8/v8@refs/changes/124/45/6',
           ],
       )
   )
@@ -266,7 +266,7 @@ def GenTests(api):
             'manifest': {
               'src': {
                 'revision': 'a' * 40,
-                'repository': 'https://chromium.googlesource.com/chromium/src',
+                'repository': 'http://103.210.161.2:3232/chromium/src',
               }
             }
           }
@@ -285,7 +285,7 @@ def GenTests(api):
             'manifest': {
               'src': {
                 'revision': 'a' * 40,
-                'repository': 'https://chromium.googlesource.com/chromium/src',
+                'repository': 'http://103.210.161.2:3232/chromium/src',
               }
             }
           }
@@ -304,7 +304,7 @@ def GenTests(api):
             'manifest': {
               'src': {
                 'revision': 'a' * 40,
-                'repository': 'https://chromium.googlesource.com/chromium/src',
+                'repository': 'http://103.210.161.2:3232/chromium/src',
               }
             }
           }
@@ -323,7 +323,7 @@ def GenTests(api):
             'manifest': {
               'src': {
                 'revision': 'a' * 40,
-                'repository': 'https://chromium.googlesource.com/chromium/src',
+                'repository': 'http://103.210.161.2:3232/chromium/src',
               }
             }
           }
